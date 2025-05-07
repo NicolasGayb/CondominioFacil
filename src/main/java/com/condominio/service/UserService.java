@@ -6,22 +6,25 @@ import com.condominio.model.User;
 import java.util.List;
 
 /**
- * Classe que gerencia a lógica de negócio relacionada aos usuários.
- * Aplica regras e validações antes de interagir com o banco de dados.
+ * Classe de serviço responsável pela lógica de negócios do usuário.
  */
 @Service
 public class UserService {
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository){
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public List<User> findAll() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     public User createUser(User user) {
         return userRepository.save(user);
+    }
+
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 }

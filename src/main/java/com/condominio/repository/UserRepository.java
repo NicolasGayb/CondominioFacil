@@ -1,11 +1,10 @@
-package com.condominio.model;
+package com.condominio.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.condominio.model.User;
 
 /**
- * Interface que define operações no banco de dados
- * JPA Repository já contém métodos prontos para CRUD.
+ * Repositório de usuários para acesso ao banco de dados.
  */
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(String email);
