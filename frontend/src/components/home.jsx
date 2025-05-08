@@ -17,7 +17,7 @@ const Home = () => {
           Esperando aquela grande encomenda chegar?<br />
           A gente resolve pra você e te avisa quando chegar!
         </p>
-        <button className="home-btn" onClick={() => navigate("/home")}>
+        <button className="home-btn" onClick={() => navigate("/login")}>
           Entrar
         </button>
       </div>
