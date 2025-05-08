@@ -1,0 +1,48 @@
+.home-bg {
+    min-height: 100vh;
+    background: #59d1f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .home-content {
+    text-align: center;
+    color: #fff;
+    max-width: 350px;
+    margin: auto;
+  }
+  
+  .home-logo img {
+    width: 120px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .home-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .home-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  .home-btn {
+    background: #fff;
+    color: #00aaff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .home-btn:hover {
+    background: #e0f7fa;
+  }
+  
