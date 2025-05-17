@@ -1,7 +1,9 @@
-// AvisoRepository.java
-package com.porteirodigital.repository;
+package com.condominiofacil.repository;
 
-import com.porteirodigital.model.Aviso;
+import com.condominiofacil.model.Aviso;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AvisoRepository extends JpaRepository<Aviso, Long> {}
+@Repository
+public interface AvisoRepository extends JpaRepository<Aviso, Long> {
+}

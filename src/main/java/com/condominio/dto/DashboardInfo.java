@@ -1,4 +1,4 @@
-package com.NicolasGayb.CondominioFacil.dto;
+package com.condominio.dto;
 
 public class DashboardInfo {
     private int encomendas;

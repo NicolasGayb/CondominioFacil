@@ -1,47 +1,40 @@
-package com.NicolasGayb.CondominioFacil.controller;
+package com.condominiofacil.controller;
 
-import com.NicolasGayb.CondominioFacil.dto.DashboardInfo;
-import com.NicolasGayb.CondominioFacil.repository.EncomendaRepository;
-import com.NicolasGayb.CondominioFacil.repository.AvisoRepository;
-import com.NicolasGayb.CondominioFacil.repository.MoradorRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.condominiofacil.service.AvisoService;
+import com.condominiofacil.service.EncomendaService;
+import com.condominiofacil.service.MoradorService;
+import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000") // Libera acesso do frontend React na porta 3000
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/dashboard")
+@CrossOrigin(origins = "*") // Permite que o React acesse a API
 public class DashboardController {
 
-    // Repositórios para acessar dados no banco
-    private final EncomendaRepository encomendaRepository;
-    private final AvisoRepository avisoRepository;
-    private final MoradorRepository moradorRepository;
+    private final EncomendaService encomendaService;
+    private final AvisoService avisoService;
+    private final MoradorService moradorService;
 
-    // Injeção de dependências via construtor
-    public DashboardController(
-            EncomendaRepository encomendaRepository,
-            AvisoRepository avisoRepository,
-            MoradorRepository moradorRepository) {
-        this.encomendaRepository = encomendaRepository;
-        this.avisoRepository = avisoRepository;
-        this.moradorRepository = moradorRepository;
+    public DashboardController(EncomendaService encomendaService,
+                               AvisoService avisoService,
+                               MoradorService moradorService) {
+        this.encomendaService = encomendaService;
+        this.avisoService = avisoService;
+        this.moradorService = moradorService;
     }
 
-    // Endpoint GET /api/dashboard que retorna os dados do dashboard em JSON
-    @GetMapping
-    public DashboardInfo getDashboardInfo() {
-        // Busca a contagem de encomendas aguardando no banco
-        long encomendas = encomendaRepository.countAguardando();
-
-        // Busca a contagem de avisos novos no banco
-        long avisos = avisoRepository.countNovos();
-
-        // Busca a contagem de moradores ativos no banco
-        long moradores = moradorRepository.countAtivos();
-
-        // Retorna um DTO com as contagens
-        return new DashboardInfo((int) encomendas, (int) avisos, (int) moradores);
+    /**
+     * Retorna os dados resumidos do painel inicial.
+     * @return mapa com os contadores
+     */
+    @GetMapping("/resumo")
+    public Map<String, Long> getResumo() {
+        Map<String, Long> resumo = new HashMap<>();
+        resumo.put("encomendasPendentes", encomendaService.countEncomendasPendentes());
+        resumo.put("avisos", avisoService.countAll());
+        resumo.put("moradores", moradorService.countAll());
+        return resumo;
     }
 }

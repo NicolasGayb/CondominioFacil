@@ -1,7 +1,9 @@
-// MoradorRepository.java
-package com.porteirodigital.repository;
+package com.condominiofacil.repository;
 
-import com.porteirodigital.model.Morador;
+import com.condominiofacil.model.Morador;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface MoradorRepository extends JpaRepository<Morador, Long> {}
+@Repository
+public interface MoradorRepository extends JpaRepository<Morador, Long> {
+}
