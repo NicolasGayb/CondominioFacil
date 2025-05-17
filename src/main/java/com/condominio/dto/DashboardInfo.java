@@ -1,25 +1,37 @@
-package com.nicolasgayb.CondominioFacil.dto;
+package com.NicolasGayb.CondominioFacil.dto;
 
 public class DashboardInfo {
-    private int encomendasAguardando;
-    private int avisosNovos;
-    private int moradoresAtivos;
+    private int encomendas;
+    private int avisos;
+    private int moradores;
 
-    public DashboardInfo(int encomendasAguardando, int avisosNovos, int moradoresAtivos) {
-        this.encomendasAguardando = encomendasAguardando;
-        this.avisosNovos = avisosNovos;
-        this.moradoresAtivos = moradoresAtivos;
+    public DashboardInfo(int encomendas, int avisos, int moradores) {
+        this.encomendas = encomendas;
+        this.avisos = avisos;
+        this.moradores = moradores;
     }
 
-    public int getEncomendasAguardando() {
-        return encomendasAguardando;
+    public int getEncomendas() {
+        return encomendas;
     }
 
-    public int getAvisosNovos() {
-        return avisosNovos;
+    public void setEncomendas(int encomendas) {
+        this.encomendas = encomendas;
     }
 
-    public int getMoradoresAtivos() {
-        return moradoresAtivos;
+    public int getAvisos() {
+        return avisos;
+    }
+
+    public void setAvisos(int avisos) {
+        this.avisos = avisos;
+    }
+
+    public int getMoradores() {
+        return moradores;
+    }
+
+    public void setMoradores(int moradores) {
+        this.moradores = moradores;
     }
 }
