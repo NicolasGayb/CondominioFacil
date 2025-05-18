@@ -1,19 +1,17 @@
 import "./Dashboard.css";
-import encomendaImg from "../assets/encomenda.svg"; // coloque sua imagem aqui
-import avisoImg from "../assets/aviso.svg";         // idem
 
 const cards = [
   {
     id: 1,
     label: "Encomendas aguardando",
     value: 0,
-    icon: encomendaImg,
+    iconUrl: "https://www.svgrepo.com/show/499848/package.svg", // ícone de pacote
   },
   {
     id: 2,
     label: "Avisos novos",
     value: 0,
-    icon: avisoImg,
+    iconUrl: "https://www.svgrepo.com/show/499794/notification.svg", // ícone de sino
   },
 ];
 
@@ -32,7 +30,7 @@ export default function Dashboard() {
       <div className="card-container">
         {cards.map((card) => (
           <div key={card.id} className="card">
-            <img src={card.icon} alt={card.label} className="icon" />
+            <img src={card.iconUrl} alt={card.label} className="icon" />
             <div className="value">{card.value}</div>
             <div className="label">{card.label}</div>
           </div>

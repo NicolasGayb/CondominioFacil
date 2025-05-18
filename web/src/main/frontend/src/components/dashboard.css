@@ -1,0 +1,55 @@
+.dashboard {
+  padding: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.highlight {
+  color: #007bff;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  background: #f9f9f9;
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  filter: grayscale(0.2);
+}
+
+.value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.label {
+  font-size: 0.95rem;
+  color: #444;
+}

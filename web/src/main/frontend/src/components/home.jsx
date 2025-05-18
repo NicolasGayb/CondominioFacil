@@ -1,67 +1,96 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { fetchResumoDashboard } from "../services/dashboardService";
+import React, { useState, useEffect } from "react";
 import "./home.css";
 
-const Home = () => {
-  const navigate = useNavigate();
-  const [resumo, setResumo] = useState({
-    encomendasPendentes: 0,
-    avisos: 0,
-    moradores: 0
+function Home() {
+  // Estado para controlar o modo escuro (dark mode)
+  // Inicializa lendo o valor salvo no localStorage ou preferencia do sistema
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved === "dark";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
-  // Carrega dados da API ao carregar a página
+  // Efeito para aplicar ou remover a classe 'dark' no body e salvar no localStorage
   useEffect(() => {
-    async function carregarDados() {
-      const dados = await fetchResumoDashboard();
-      setResumo(dados);
+    if (darkMode) {
+      document.body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
-    carregarDados();
-  }, []);
+  }, [darkMode]);
 
   return (
     <div className="main-wrapper">
+      {/* Botão toggle no canto superior direito */}
       <div className="top-right-buttons">
-        <button className="top-btn" onClick={() => navigate("/login")}>Login</button>
-        <button className="top-btn" onClick={() => navigate("/register")}>Cadastro</button>
+        <button
+          className="top-btn"
+          onClick={() => setDarkMode(!darkMode)} // Alterna tema claro/escuro
+          aria-label="Toggle Dark Mode"
+        >
+          {/* Ícones simples para indicar estado */}
+          {darkMode ? "☀️ Claro" : "🌙 Escuro"}
+        </button>
       </div>
 
+      {/* Cartão principal de boas-vindas */}
       <div className="welcome-card">
-        <h2>Bem-vindo ao <span className="brand">Condômino Fácil!</span></h2>
+        <h1>
+          Bem-vindo ao <span className="brand">Condomínio Fácil!</span>
+        </h1>
         <p>
-          Aqui você acompanha suas encomendas, solicitações e avisos do condomínio em tempo real.<br />
+          Aqui você acompanha suas encomendas, solicitações e avisos do
+          condomínio em tempo real.<br />
           Use o menu para navegar.
         </p>
 
+        {/* Cards de informações rápidas */}
         <div className="dashboard-cards">
           <div className="dashboard-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/833/833524.png" alt="encomenda" className="dashboard-icon" />
-            <div>
-              <strong>{resumo.encomendasPendentes}</strong>
-              <div>Encomendas aguardando</div>
-            </div>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2913/2913466.png" // Ícone Encomendas
+              alt="Encomendas"
+              className="dashboard-icon"
+            />
+            <span className="count">0</span>
+            <p>Encomendas aguardando</p>
           </div>
 
           <div className="dashboard-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/1827/1827392.png" alt="avisos" className="dashboard-icon" />
-            <div>
-              <strong>{resumo.avisos}</strong>
-              <div>Avisos novos</div>
-            </div>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1827/1827304.png" // Ícone Avisos
+              alt="Avisos"
+              className="dashboard-icon"
+            />
+            <span className="count">0</span>
+            <p>Avisos novos</p>
           </div>
+        </div>
 
-          <div className="dashboard-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="moradores" className="dashboard-icon" />
-            <div>
-              <strong>{resumo.moradores}</strong>
-              <div>Moradores ativos</div>
-            </div>
-          </div>
+        {/* Botões de ação Login e Cadastro */}
+        <div className="action-buttons">
+          <button className="btn login-btn">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/271/271220.png" // Ícone Login
+              alt="Login Icon"
+              className="btn-icon"
+            />
+            Login
+          </button>
+          <button className="btn signup-btn">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/992/992651.png" // Ícone Cadastro
+              alt="Cadastro Icon"
+              className="btn-icon"
+            />
+            Cadastro
+          </button>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Home;
