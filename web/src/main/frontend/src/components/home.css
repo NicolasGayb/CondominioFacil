@@ -9,6 +9,15 @@ body, html {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Centraliza a main-wrapper na tela inteira */
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Tema escuro */
 body.dark {
   background-color: #121a2b; /* azul escuro */
@@ -17,11 +26,12 @@ body.dark {
 
 /* Wrapper centralizado vertical e horizontal */
 .main-wrapper {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* vertical center */
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
   max-width: 720px;
   margin: 0 auto;
   padding: 20px;
