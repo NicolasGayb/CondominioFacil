@@ -1,167 +1,172 @@
-/* home.css */
-
-/* Estilos básicos do body */
-body {
+/* Reset e tamanho completo para html e body */
+html, body {
+  height: 100%;
   margin: 0;
+  padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #e3f2fd; /* Azul claro */
-  color: #333; /* Texto escuro */
-  transition: background-color 0.4s ease, color 0.4s ease; /* Transição suave ao trocar tema */
+  background-color: #e3f2fd; /* azul claro */
+  color: #333;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Estilos para o tema escuro */
+/* Tema escuro */
 body.dark {
-  background-color: #121a2b; /* Azul escuro */
-  color: #ddd; /* Texto claro */
+  background-color: #121a2b; /* azul escuro */
+  color: #ddd;
 }
 
-/* Container principal que centraliza o conteúdo */
+/* Wrapper centralizado vertical e horizontal */
 .main-wrapper {
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 1.5rem;
-  position: relative; /* Para posicionar botões no canto */
+  justify-content: center; /* vertical center */
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  position: relative;
 }
 
-/* Container do botão toggle no canto superior direito */
+/* Botão toggle no topo direito fixo */
 .top-right-buttons {
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 1rem;
+  z-index: 100;
 }
 
 /* Estilo do botão toggle */
 .top-btn {
-  background-color: #1565c0; /* Azul escuro */
+  background-color: #1565c0;
   color: #fff;
   border: none;
-  padding: 0.6rem 1.3rem;
+  padding: 0.5rem 1rem;
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   box-shadow: 0 4px 8px rgb(21 101 192 / 0.3);
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
 }
 
 .top-btn:hover {
-  background-color: #0d47a1; /* Azul mais escuro no hover */
+  background-color: #0d47a1;
 }
 
-/* Cartão de boas-vindas */
+/* Cartão principal */
 .welcome-card {
   background-color: #fff;
-  border-radius: 24px;
-  box-shadow: 0 6px 20px rgba(21, 101, 192, 0.25);
-  padding: 3rem 2.5rem;
+  border-radius: 65px;
+  box-shadow: 0 25px 20px rgba(21, 101, 192, 0.25);
+  padding: 3rem;
+  width: 100%;
   max-width: 600px;
   text-align: center;
-  margin-top: 6rem;
+  box-sizing: border-box;
   animation: fadeIn 0.6s ease forwards;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Estilo do cartão no tema escuro */
+/* Tema escuro para o cartão */
 body.dark .welcome-card {
-  background-color: #1e2a47; /* Azul escuro */
-  color: #cfd8dc; /* Texto claro */
+  background-color: #1e2a47;
+  color: #cfd8dc;
   box-shadow: 0 6px 25px rgba(21, 101, 192, 0.8);
 }
 
-/* Estilo da marca (Condomínio Fácil) */
+/* Marca */
 .brand {
   color: #1565c0;
   font-weight: 700;
 }
 
 body.dark .brand {
-  color: #82b1ff; /* Azul claro no tema escuro */
+  color: #82b1ff;
 }
 
-/* Título do cartão */
+/* Título menor */
 .welcome-card h1 {
-  font-size: 2.5rem;
+  font-size: 1.9rem;
   margin-bottom: 0.5rem;
 }
 
-/* Parágrafo explicativo */
+/* Parágrafo */
 .welcome-card p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: 3rem;
-  color: inherit; /* Herdar cor conforme tema */
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 2.5rem;
+  color: inherit;
 }
 
-/* Container dos cards informativos */
+/* Container dos cards */
 .dashboard-cards {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-/* Cada card individual */
+/* Cards individuais */
 .dashboard-card {
-  background-color: #bbdefb; /* Azul claro */
-  border-radius: 20px;
-  padding: 1.8rem 2rem;
-  min-width: 160px;
-  flex: 1 1 150px;
+  background-color: #bbdefb;
+  border-radius: 16px;
+  padding: 1.3rem 1.6rem;
+  min-width: 130px;
+  flex: 1 1 130px;
   box-shadow: 0 4px 10px rgb(21 101 192 / 0.2);
   cursor: default;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #0d47a1; /* Azul escuro */
+  color: #0d47a1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Efeito hover para card */
 .dashboard-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgb(21 101 192 / 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgb(21 101 192 / 0.3);
 }
 
-/* Card no tema escuro */
 body.dark .dashboard-card {
-  background-color: #283d6a; /* Azul mais escuro */
-  color: #82b1ff; /* Azul claro */
+  background-color: #283d6a;
+  color: #82b1ff;
   box-shadow: 0 4px 12px rgb(21 101 192 / 0.6);
 }
 
-/* Ícone dentro dos cards */
+/* Ícone */
 .dashboard-icon {
-  width: 56px;
-  height: 56px;
-  margin-bottom: 1rem;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.8rem;
 }
 
-/* Número grande no card */
+/* Número */
 .count {
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
-/* Container dos botões de ação */
+/* Container dos botões */
 .action-buttons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.3rem;
   flex-wrap: wrap;
 }
 
-/* Estilo base dos botões */
+/* Botões base */
 .btn {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   font-weight: 600;
-  font-size: 1.1rem;
-  padding: 0.75rem 2rem;
-  border-radius: 14px;
+  font-size: 1rem;
+  padding: 0.6rem 1.6rem;
+  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   border: none;
@@ -169,13 +174,7 @@ body.dark .dashboard-card {
   user-select: none;
 }
 
-/* Ícone dentro dos botões */
-.btn-icon {
-  width: 22px;
-  height: 22px;
-}
-
-/* Botão Login - fundo azul escuro e texto branco */
+/* Botão Login */
 .login-btn {
   background-color: #1565c0;
   color: white;
@@ -183,23 +182,23 @@ body.dark .dashboard-card {
 
 .login-btn:hover {
   background-color: #0d47a1;
-  box-shadow: 0 10px 20px rgba(13, 71, 161, 0.6);
+  box-shadow: 0 8px 18px rgba(13, 71, 161, 0.5);
 }
 
-/* Botão Cadastro - fundo branco com borda azul */
+/* Botão Cadastro */
 .signup-btn {
   background-color: white;
   color: #1565c0;
-  border: 2.5px solid #1565c0;
+  border: 2px solid #1565c0;
 }
 
 .signup-btn:hover {
   background-color: #1565c0;
   color: white;
-  box-shadow: 0 10px 20px rgba(21, 101, 192, 0.6);
+  box-shadow: 0 8px 18px rgba(21, 101, 192, 0.5);
 }
 
-/* Animação simples para fade-in do cartão */
+/* Animação fade-in */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -208,5 +207,18 @@ body.dark .dashboard-card {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  .main-wrapper {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-wrapper {
+    max-width: 720px;
   }
 }
