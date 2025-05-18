@@ -1,0 +1,48 @@
+/* register.css */
+
+/* Reaproveita base do home.css */
+@import url("./home.css");
+
+/* Formulário estilizado com espaçamento e inputs agradáveis */
+.register-form {
+  .register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 2rem 0 3rem 0; /* menos margem no topo, mais embaixo */
+    }
+}
+
+/* Estilo refinado dos campos de input */
+.register-form input {
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f5faff; /* fundo claro e suave */
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(21, 101, 192, 0.1);
+}
+
+/* Input em foco */
+.register-form input:focus {
+  border-color: #1565c0;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.2);
+}
+
+/* Inputs no tema escuro */
+body.dark .register-form input {
+  background-color: #263a59;
+  color: #fff;
+  border: 1px solid #5f87c7;
+}
+
+/* Placeholder claro no modo escuro */
+body.dark .register-form input::placeholder {
+  color: #cfd8dc;
+}
+.register-form button {
+  align-self: center; /* Centraliza o botão horizontalmente dentro do form */
+}

@@ -1,74 +1,53 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import api from "../services/api"; // Certifique-se de que esse serviço está configurado corretamente
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./login.css";
 
-const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
+function Login() {
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+  // Estado para controlar o tema escuro
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("darkMode") === "true" || false;
+  });
 
-    try {
-      // Ajuste o endpoint e o payload conforme sua API
-      const response = await api.post("/users/login", { email, senha: password });
-      // Exemplo: supondo que o token venha em response.data.token
-      if (response.data && response.data.token) {
-        // Salve o token no localStorage para manter a sessão
-        localStorage.setItem("token", response.data.token);
-        // Redirecione para a página principal do sistema (ajuste o caminho conforme necessário)
-        navigate("/dashboard");
-      } else {
-        setError("Credenciais inválidas. Tente novamente.");
-      }
-    } catch (err) {
-      setError("Erro ao fazer login. Verifique seus dados.");
-    } finally {
-      setLoading(false);
-    }
+  // Aplica o tema ao carregar e ao alterar
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
+
+  // Lógica de envio do formulário de login
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Login simulado"); // Aqui você pode chamar uma API real
   };
 
   return (
-    <div className="login-bg">
-      <div className="login-container">
-        <h2>Porteiro Digital</h2>
-        <form onSubmit={handleSubmit} className="login-form">
-          <input
-            type="email"
-            placeholder="Email"
-            autoComplete="username"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit" disabled={loading}>
-            {loading ? "Entrando..." : "Entrar"}
-          </button>
-          {error && <div className="login-error">{error}</div>}
+    <div className="main-wrapper">
+      {/* Botão de alternância de tema */}
+      <div className="top-right-buttons">
+        <button className="top-btn" onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? "Tema Claro" : "Tema Escuro"}
+        </button>
+      </div>
+
+      {/* Card de autenticação */}
+      <div className="auth-card">
+        <h1>Entrar</h1>
+        <form onSubmit={handleSubmit}>
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Senha" required />
+          <button type="submit" className="btn login-btn">Entrar</button>
         </form>
-        <div className="login-register-link">
-          <span>Não tem conta?</span>
-          <button type="button" onClick={() => navigate("/register")}>
-            Cadastre-se
-          </button>
-        </div>
+
+        {/* Link para tela de cadastro */}
+        <p className="switch">
+          Ainda não tem conta?{" "}
+          <span onClick={() => navigate("/register")}>Cadastre-se</span>
+        </p>
       </div>
     </div>
   );
-};
+}
 
-export default LoginPage;
+export default Login;

@@ -1,66 +1,56 @@
-.login-bg {
-    min-height: 100vh;
-    background: #f0f4f8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .login-container {
-    background: #fff;
-    padding: 2.5rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    width: 100%;
-    max-width: 350px;
-    text-align: center;
-  }
-  
-  .login-form input {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border-radius: 6px;
-    border: 1px solid #d0d0d0;
-    font-size: 1rem;
-  }
-  
-  .login-form button {
-    width: 100%;
-    padding: 0.8rem;
-    background: #00aaff;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  
-  .login-form button:disabled {
-    background: #b0e0f7;
-    cursor: not-allowed;
-  }
-  
-  .login-error {
-    color: #e53935;
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-  }
-  
-  .login-register-link {
-    margin-top: 1.5rem;
-    font-size: 0.95rem;
-  }
-  
-  .login-register-link button {
-    background: none;
-    border: none;
-    color: #00aaff;
-    cursor: pointer;
-    font-weight: 600;
-    margin-left: 0.3rem;
-    text-decoration: underline;
-  }
-  
+@import url('./home.css'); /* Reaproveita estilos globais da Home */
+
+/* Estilização do cartão de autenticação */
+.auth-card {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 20px 20px rgba(21, 101, 192, 0.25);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 5rem;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tema escuro para o cartão */
+body.dark .auth-card {
+  background-color: #1e2a47;
+  color: #cfd8dc;
+}
+
+/* Título do formulário */
+.auth-card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Campos de entrada */
+.auth-card input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Foco nos campos */
+.auth-card input:focus {
+  outline: none;
+  border-color: #1565c0;
+}
+
+/* Texto de redirecionamento para cadastro */
+.auth-card .switch {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Link clicável */
+.auth-card .switch span {
+  color: #1565c0;
+  cursor: pointer;
+  font-weight: bold;
+}
