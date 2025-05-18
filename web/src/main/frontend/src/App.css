@@ -1,10 +1,26 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset de layout */
+html, body, #root {
+  height: 100%;
+  width: 100%; /* garante largura total */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Contêiner principal centralizado */
+#root {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: #e3f2fd; /* azul claro */
+  box-sizing: border-box;
+}
+
+/* Estilo da logo */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -33,10 +49,59 @@
   }
 }
 
+/* Cartão centralizado com sombra suave */
 .card {
-  padding: 2em;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
 }
 
+/* Estilo de texto auxiliar */
 .read-the-docs {
   color: #888;
+}
+
+/* Estilo para botões (exemplo com cores primárias) */
+button {
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: #1976d2;
+  color: white;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  border: 2px solid #1976d2;
+  color: #1976d2;
+}
+
+.btn-outline-primary:hover {
+  background-color: #1976d2;
+  color: white;
+}
+
+/* Responsivo extra para telas muito pequenas */
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }

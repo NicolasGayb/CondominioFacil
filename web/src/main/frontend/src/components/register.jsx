@@ -1,16 +1,18 @@
-// Register.jsx
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./register.css";
 
 function Register() {
-  const [darkMode, setDarkMode] = useState(false);
+  const navigate = useNavigate();
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("darkMode") === "true" || false;
+  });
 
-  // Aplica ou remove a classe 'dark' no body com base no estado
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  // Estado para os campos do formulário
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -19,45 +21,36 @@ function Register() {
     confirmPassword: ""
   });
 
-  // Atualiza os dados do formulário conforme o usuário digita
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Envia o formulário (ainda sem backend)
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validação simples de senha
     if (formData.password !== formData.confirmPassword) {
       alert("As senhas não coincidem.");
       return;
     }
 
-    // Aqui você pode enviar os dados para uma API
     console.log("Dados enviados:", formData);
     alert("Cadastro realizado com sucesso!");
+    navigate("/login");
   };
 
   return (
     <div className="main-wrapper">
       <div className="top-right-buttons">
-        <button
-          className="top-btn"
-          onClick={() => setDarkMode(!darkMode)}
-          aria-label="Alternar tema"
-        >
-          {darkMode ? "☀️ Claro" : "🌙 Escuro"}
+        <button className="top-btn" onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? "☀️ Tema Claro" : "🌙 Tema Escuro"}
         </button>
       </div>
 
-      <div className="welcome-card">
-        <h1>
-          Crie sua conta no <span className="brand">Condomínio Fácil</span>
-        </h1>
-        <p>Preencha os dados abaixo para acessar a plataforma.</p>
+      <div className="auth-card">
+        <h1>Crie sua conta</h1>
+        <p className="subtitle">Preencha os dados abaixo para se cadastrar</p>
 
-        <form className="register-form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="auth-form">
           <input
             type="text"
             name="fullName"
@@ -98,10 +91,13 @@ function Register() {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="btn login-btn">
-            Criar conta
-          </button>
+          <button type="submit" className="btn login-btn">Criar conta</button>
         </form>
+
+        <p className="switch">
+          Já possui conta?{" "}
+          <span onClick={() => navigate("/login")}>Entrar</span>
+        </p>
       </div>
     </div>
   );

@@ -1,56 +1,90 @@
-@import url('./home.css'); /* Reaproveita estilos globais da Home */
-
-/* Estilização do cartão de autenticação */
-.auth-card {
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 20px 20px rgba(21, 101, 192, 0.25);
-  padding: 2.5rem;
-  width: 100%;
-  max-width: 400px;
-  margin-top: 5rem;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Tema escuro para o cartão */
-body.dark .auth-card {
-  background-color: #1e2a47;
-  color: #cfd8dc;
-}
-
-/* Título do formulário */
-.auth-card h1 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Campos de entrada */
-.auth-card input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+/* Centraliza toda a tela */
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+  background-color: #e3f2fd;
   box-sizing: border-box;
+  position: relative;
 }
 
-/* Foco nos campos */
-.auth-card input:focus {
-  outline: none;
-  border-color: #1565c0;
+/* Botão de tema no topo direito */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
-/* Texto de redirecionamento para cadastro */
-.auth-card .switch {
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-}
-
-/* Link clicável */
-.auth-card .switch span {
-  color: #1565c0;
+.theme-btn {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
   cursor: pointer;
-  font-weight: bold;
+  background-color: transparent;
+  color: #1976d2;
+  border: 2px solid #1976d2;
+  transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+  background-color: #1976d2;
+  color: white;
+}
+
+/* Estilo dos inputs e botão */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.auth-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Estilo do parágrafo abaixo do formulário */
+.switch {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.switch span {
+  color: #1976d2;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Tema escuro */
+body.dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+body.dark .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+body.dark input {
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+
+body.dark .theme-btn {
+  color: white;
+  border-color: white;
+}
+
+body.dark .theme-btn:hover {
+  background-color: white;
+  color: #121212;
 }

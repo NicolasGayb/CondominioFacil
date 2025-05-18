@@ -1,5 +1,5 @@
 /* Reset e tamanho completo para html e body */
-html, body {
+body, html {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -17,14 +17,14 @@ body.dark {
 
 /* Wrapper centralizado vertical e horizontal */
 .main-wrapper {
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; /* vertical center */
   max-width: 720px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 20px;
   box-sizing: border-box;
   position: relative;
 }
@@ -58,9 +58,9 @@ body.dark {
 /* Cartão principal */
 .welcome-card {
   background-color: #fff;
-  border-radius: 65px;
-  box-shadow: 0 25px 20px rgba(21, 101, 192, 0.25);
-  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.25);
+  padding: 40px;
   width: 100%;
   max-width: 600px;
   text-align: center;
@@ -95,8 +95,8 @@ body.dark .brand {
 /* Parágrafo */
 .welcome-card p {
   font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 2.5rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
   color: inherit;
 }
 
