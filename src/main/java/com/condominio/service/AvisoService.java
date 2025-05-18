@@ -1,4 +1,4 @@
-package com.condominiofacil.service;
+package com.condominio.service;
 
 import com.condominiofacil.model.Aviso;
 import com.condominiofacil.repository.AvisoRepository;
