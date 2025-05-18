@@ -15,17 +15,17 @@ public class EncomendaService {
     }
     /**
      * Retorna todas as encomendas do banco.
-     * @Return lista de encomendas
+     * @return lista de encomendas
      */
-    public list<Encomenda> findAll() {
+    public List<Encomenda> findAll() {
         return encomendaRepository.findAll();
     }
 
     /**
      * Conta quantas encomendas ainda estão pendentes de entrega
-     * @Return número de encomendas pendentes
+     * @return número de encomendas pendentes
      */
     public long countEncomendasPendentes() {
-        return encomendaRepository.countByEntregueFalse();
+        return encomendaRepository.countByRetiradaFalse();
     }
 }

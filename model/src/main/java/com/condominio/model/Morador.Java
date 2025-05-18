@@ -13,6 +13,10 @@ public class Morador {
 
     private boolean ativo;
 
+    private String email;
+
+    private String apartamento;
+
     // Getters e setters
 
     public Long getId() {
@@ -29,6 +33,14 @@ public class Morador {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
     public String getEmail() {

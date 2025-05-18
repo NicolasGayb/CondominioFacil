@@ -1,17 +1,17 @@
 package com.condominio.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Aviso {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String titulo;
     private String mensagem;
-
     private boolean lido;
+    private LocalDateTime dataCriacao;
 
     // Getters e setters
 
@@ -37,6 +37,14 @@ public class Aviso {
 
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
+    }
+
+    public boolean isLido() {
+        return lido;
+    }
+
+    public void setLido(boolean lido) {
+        this.lido = lido;
     }
 
     public LocalDateTime getDataCriacao() {
