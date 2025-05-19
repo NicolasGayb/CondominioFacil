@@ -25,4 +25,11 @@ public class UserController {
             return ResponseEntity.status(401).body("Usuário ou senha inválidos");
         }
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody User user) {
+        user.setTipo("morador");
+        userRepository.save(user);
+        return ResponseEntity.ok().body("Usuário cadastrado com sucesso como morador.");
+    }
 }
