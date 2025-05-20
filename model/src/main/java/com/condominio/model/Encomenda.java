@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class encomenda {
+public class Encomenda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -44,7 +44,7 @@ public class encomenda {
     public void setDataRecebimento(LocalDateTime dataRecebimento) {
         this.dataRecebimento = dataRecebimento;
     }
-    public morador getMorador() {
+    public Morador getMorador() {
         return morador;
     }
     public void setMorador(Morador morador) {
