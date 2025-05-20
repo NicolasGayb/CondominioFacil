@@ -1,17 +1,23 @@
-# Usar uma imagem base com JDK
-FROM eclipse-temurin:17-jdk-alpine
+FROM maven:3.9.6-eclipse-temurin-17-alpine
 
-# Definir diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copiar todo o projeto para dentro do container
-COPY . .
+# Copie o Maven Wrapper e o POM principal
+COPY .mvn/ .mvn
+COPY mvnw .
+COPY pom.xml .
 
-# Dar permissão para o wrapper Maven (mvnw) da raiz do projeto
+# Copie todos os módulos
+COPY model ./model
+COPY repository ./repository
+COPY service ./service
+COPY web ./web
+
+# Dê permissão de execução ao wrapper
 RUN chmod +x mvnw
 
-# Buildar o projeto inteiro a partir do POM pai
+# Build do projeto (a partir do POM pai)
 RUN ./mvnw clean package -DskipTests
 
-# Definir o comando padrão para rodar o .jar do módulo web
+# Comando para rodar o jar
 CMD ["java", "-jar", "web/target/web-1.0.0.jar"]
