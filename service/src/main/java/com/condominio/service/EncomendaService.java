@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.condominio.model.encomenda;
+import com.condominio.model.Encomenda;
 import com.condominio.repository.EncomendaRepository;
 
 @Service
@@ -18,7 +18,7 @@ public class EncomendaService {
      * Retorna todas as encomendas do banco.
      * @return lista de encomendas
      */
-    public List<encomenda> findAll() {
+    public List<Encomenda> findAll() {
         return encomendaRepository.findAll();
     }
 
