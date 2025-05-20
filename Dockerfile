@@ -7,11 +7,11 @@ WORKDIR /app
 # Copiar todo o projeto para dentro do container
 COPY . .
 
-# Dar permissão para o wrapper Maven (mvnw)
-RUN chmod +x web/mvnw
+# Dar permissão para o wrapper Maven (mvnw) da raiz do projeto
+RUN chmod +x mvnw
 
-# Buildar o projeto inteiro, pulando testes e com debug
-RUN ./web/mvnw clean package -DskipTests -X
+# Buildar o projeto inteiro a partir do POM pai
+RUN ./mvnw clean package -DskipTests
 
-# Definir o comando padrão para rodar a aplicação
+# Definir o comando padrão para rodar o .jar do módulo web
 CMD ["java", "-jar", "web/target/web-1.0.0.jar"]
