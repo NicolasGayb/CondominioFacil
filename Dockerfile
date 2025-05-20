@@ -26,7 +26,7 @@ RUN chmod +x mvnw
 RUN apk add --no-cache dos2unix && dos2unix mvnw
 
 # Realiza o build do projeto utilizando o Maven Wrapper, pulando os testes
-RUN ./mvnw clean package -DskipTests
+RUN env -u MAVEN_CONFIG ./mvnw clean package -DskipTests
 
 # Define o comando padrão para rodar a aplicação, apontando para o jar gerado do módulo web
 CMD ["java", "-jar", "web/target/web-1.0.0.jar"]
