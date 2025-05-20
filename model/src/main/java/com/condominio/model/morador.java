@@ -3,7 +3,7 @@ package com.condominio.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Morador {
+public class morador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

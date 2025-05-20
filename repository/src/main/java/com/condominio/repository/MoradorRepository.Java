@@ -1,8 +1,9 @@
 package com.condominio.repository;
 
-import com.condominio.model.Morador;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MoradorRepository extends JpaRepository<Morador, Long> {
+import com.condominio.model.morador;
+
+public interface MoradorRepository extends JpaRepository<morador, Long> {
     long countByAtivoTrue();
 }
