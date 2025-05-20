@@ -1,4 +1,4 @@
-package com.condominio.model;
+wpackage com.condominio.model;
 
 import java.time.LocalDateTime;
 

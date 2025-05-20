@@ -44,15 +44,15 @@ function Login() {
   };
 
   return (
-    <div className="login-wrapper">
+    <div className={`login-wrapper${darkMode ? ' dark-bg' : ''}`}>
       <div className="theme-toggle">
         <button className="theme-btn" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? "☀️ Tema Claro" : "🌙 Tema Escuro"}
         </button>
       </div>
 
-      <div className="card">
-        <h1>Bem-vindo de volta</h1>
+      <div className={`card${darkMode ? ' card-dark' : ''}`}>
+        <h1 className="login-title">Bem-vindo de volta</h1>
         <p className="subtitle">Acesse sua conta para continuar</p>
 
         <form onSubmit={handleSubmit} className="auth-form">
@@ -60,19 +60,19 @@ function Login() {
             type="email"
             placeholder="E-mail"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             required
+            className={darkMode ? 'input-dark' : ''}
           />
           <input
             type="password"
             placeholder="Senha"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
             required
+            className={darkMode ? 'input-dark' : ''}
           />
-          <button type="submit" className="btn-primary">
-            Entrar
-          </button>
+          <button type="submit" className="btn-primary">Entrar</button>
         </form>
         {error && <div className="error-message">{error}</div>}
         <p className="switch">
