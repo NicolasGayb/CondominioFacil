@@ -26,7 +26,7 @@ RUN apk add --no-cache dos2unix && dos2unix mvnw
 RUN ./mvnw clean package -DskipTests
 
 # Expõe a porta padrão do Spring Boot (ajuste se necessário)
-EXPOSE 8080
+EXPOSE 8082
 
 # Comando para rodar o backend
 CMD ["java", "-jar", "web/target/web-1.0.0.jar"]
