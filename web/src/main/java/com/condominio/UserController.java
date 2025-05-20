@@ -17,12 +17,15 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User loginRequest) {
         Optional<User> userOpt = userRepository.findByEmail(loginRequest.getEmail());
-        if (userOpt.isPresent() && userOpt.get().getPassword().equals(loginRequest.getPassword())) {
+        if (userOpt.isPresent()) {
             User user = userOpt.get();
-            String tipo = user.getTipo();
-            return ResponseEntity.ok().body(tipo);
+            if (user.getPassword().equals(loginRequest.getPassword())) {
+                return ResponseEntity.ok().body(user.getTipo());
+            } else {
+                return ResponseEntity.status(401).body("Senha incorreta. Digitada: " + loginRequest.getPassword() + " | Esperada: " + user.getPassword());
+            }
         } else {
-            return ResponseEntity.status(401).body("Usuário ou senha inválidos");
+            return ResponseEntity.status(401).body("Email não encontrado: " + loginRequest.getEmail());
         }
     }
 
