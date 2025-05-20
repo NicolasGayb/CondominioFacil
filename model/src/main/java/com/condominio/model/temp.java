@@ -44,7 +44,7 @@ public class encomenda {
     public void setDataRecebimento(LocalDateTime dataRecebimento) {
         this.dataRecebimento = dataRecebimento;
     }
-    public Morador getMorador() {
+    public morador getMorador() {
         return morador;
     }
     public void setMorador(Morador morador) {
