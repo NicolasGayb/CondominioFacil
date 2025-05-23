@@ -52,11 +52,11 @@
             </exclusions>
         </dependency>
         <!-- Força o uso do Logback -->
-        <dependency>
+        <!-- <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.4.14</version>
-        </dependency>
+        </dependency> -->
         <!-- Outras dependências do backend -->
         <dependency>
             <groupId>com.condominio</groupId>
@@ -149,7 +149,7 @@
                             <outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>src/main/frontend/build</directory>
+                                    <directory>src/main/frontend/dist</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -160,6 +160,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <!-- Compiler plugin -->
             <plugin>

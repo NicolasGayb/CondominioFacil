@@ -1,10 +1,11 @@
 package com.condominio.service;
 
-import com.condominio.model.Encomenda;
-import com.condominio.repository.EncomendaRepository;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.condominio.model.Encomenda;
+import com.condominio.repository.EncomendaRepository;
 
 @Service
 public class EncomendaService {

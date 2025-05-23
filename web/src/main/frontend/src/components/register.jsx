@@ -25,17 +25,32 @@ function Register() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (formData.password !== formData.confirmPassword) {
       alert("As senhas não coincidem.");
       return;
     }
-
-    console.log("Dados enviados:", formData);
-    alert("Cadastro realizado com sucesso!");
-    navigate("/login");
+    try {
+      const response = await fetch("http://localhost:8082/CondominioFacil/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password
+        })
+      });
+      if (response.ok) {
+        alert("Cadastro realizado com sucesso!");
+        navigate("/login");
+      } else {
+        const msg = await response.text();
+        alert(msg || "Erro ao cadastrar usuário.");
+      }
+    } catch (err) {
+      alert("Erro ao conectar com o servidor.");
+    }
   };
 
   return (

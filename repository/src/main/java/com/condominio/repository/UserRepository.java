@@ -1,8 +1,12 @@
 package com.condominio.repository;
 
-import com.condominio.model.User;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.condominio.model.User;
+
 public interface UserRepository extends JpaRepository<User, Long> {
-    // Métodos customizados podem ser adicionados aqui
+    Optional<User> findByEmail(String email);
+    Optional<User> findByUsername(String username);
 }

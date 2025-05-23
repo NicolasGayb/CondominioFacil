@@ -1,0 +1,26 @@
+# Evita copiar arquivos e pastas desnecessárias para a imagem Docker
+
+# Diretórios de build do Maven
+target
+web/target
+model/target
+repository/target
+service/target
+
+# Diretórios e arquivos de IDE
+.idea
+*.iml
+*.log
+*.md
+*.DS_Store
+*.vscode
+
+# Git
+.git
+.gitignore
+
+# Node (caso use frontend)
+node_modules
+
+# Arquivos de ambiente
+.env
