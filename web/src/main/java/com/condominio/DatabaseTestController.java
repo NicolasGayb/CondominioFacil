@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controlador para testar a conexão com o banco de dados.
+ */
 @RestController
 @RequestMapping("/db-test")
 public class DatabaseTestController {

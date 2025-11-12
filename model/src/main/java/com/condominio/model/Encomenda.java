@@ -8,14 +8,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
+/**
+ * Entidade que representa uma encomenda recebida no condomínio.
+ */
 @Entity
 public class Encomenda {
+    // Campos da entidade
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
     private boolean retirada;
     private LocalDateTime dataRecebimento;
+    // Relacionamento com Morador
     @ManyToOne
     private Morador morador;
 

@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+/**
+ * Controlador para autenticação e registro de usuários.
+ */
 @RestController
 @RequestMapping("/api/auth")
 public class UserController {
