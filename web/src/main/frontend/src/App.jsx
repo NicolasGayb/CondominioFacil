@@ -2,6 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import Login from "./components/login";
 import Register from "./components/register";
+import React from "react";
+import AdminDashboard from "./components/admin/adminDashboard";
+import SindicoDashboard from "./components/sindico/sindicoDashboard";
+import PorteiroDashboard from "./components/porteiro/porteiroDashboard";
+import MoradorDashboard from "./components/morador/moradorDashboard";
 
 function AdminPage() {
   return <h2>Página do Administrador</h2>;
@@ -22,10 +27,12 @@ const App = () => (
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/admin" element={<AdminPage />} />
-      <Route path="/sindico" element={<SindicoPage />} />
-      <Route path="/portaria" element={<PortariaPage />} />
-      <Route path="/morador" element={<MoradorPage />} />
+
+      {/* Dashboard Routes */}
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/sindico" element={<SindicoDashboard />} />
+      <Route path="/porteiro" element={<PorteiroDashboard />} />
+      <Route path="/morador" element={<MoradorDashboard />} />
     </Routes>
   </BrowserRouter>
 );

@@ -19,27 +19,42 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
       const response = await fetch("http://localhost:8082/api/auth/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ email, password }),
       });
-      if (response.ok) {
-        const tipo = await response.text();
-        if (tipo === "admin") {
-          navigate("/admin");
-        } else if (tipo === "morador") {
-          navigate("/morador");
-        } else {
-          navigate("/");
-        }
-      } else {
+
+      // Se o login deu errado
+      if (!response.ok) {
         const msg = await response.text();
-        setError(msg || "Usuário ou senha inválidos");
+        setError(msg || "Erro ao fazer login. Tente novamente.");
+        return;
       }
+
+      // Se o login deu certo
+      const tipo = await response.text();
+
+      // Salvar no localStorage
+      localStorage.setItem("role", tipo);
+
+      // Redirecionar baseado no tipo
+      if (tipo === "admin") {
+        navigate("/admin");
+      } else if (tipo === "sindico") {
+        navigate("/sindico");
+      } else if (tipo === "porteiro") {
+        navigate("/porteiro");
+      } else if (tipo === "morador") {
+        navigate("/morador");
+      } else {
+        setError("Tipo de usuário desconhecido.");
+      }
+
     } catch (err) {
-      setError("Erro ao conectar com o servidor");
+      setError("Erro ao conectar ao servidor. Tente novamente mais tarde.");
     }
   };
 
