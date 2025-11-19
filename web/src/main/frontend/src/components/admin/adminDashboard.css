@@ -1,101 +1,41 @@
-.admin-container {
-  padding: 30px;
-  min-height: 100vh;
-  background: #f3f4f6;
-  transition: 0.3s;
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
 }
 
-.admin-container.dark {
-  background: #1b1b1d;
-  color: #f1f1f1;
+.subtitle {
+  margin-top: 4px;
+  opacity: 0.7;
+  margin-bottom: 25px;
 }
 
-.admin-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.logout-btn {
-  background: #ff4d4d;
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  font-size: 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.logout-btn:hover {
-  background: #e63e3e;
-}
-
-/* GRID */
-.admin-grid {
+.dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-.admin-card {
+.dashboard-card {
   background: white;
   padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.admin-container.dark .admin-card {
-  background: #2a2a2c;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-}
-
-.admin-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-.admin-card h3 {
-  margin: 15px 0 8px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.admin-container.dark .admin-card h3 {
-  color: #fff;
-}
-
-.admin-card p {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* ICONES (DESIGN MINIMALISTA) */
-.icon {
-  width: 45px;
-  height: 45px;
   border-radius: 12px;
-  margin-bottom: 10px;
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: 0.2s;
+  cursor: pointer;
 }
 
-.icon.users {
-  background-image: url("https://img.icons8.com/ios-filled/50/1a73e8/user-group-man-man.png");
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
-.icon.buildings {
-  background-image: url("https://img.icons8.com/ios-filled/50/1a73e8/city-buildings.png");
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 15px;
 }
 
-.icon.deliveries {
-  background-image: url("https://img.icons8.com/ios-filled/50/1a73e8/parcel.png");
-}
-
-.icon.settings {
-  background-image: url("https://img.icons8.com/ios-filled/50/1a73e8/settings.png");
+.stats div strong {
+  font-size: 22px;
+  display: block;
 }

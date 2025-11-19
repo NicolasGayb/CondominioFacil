@@ -1,0 +1,95 @@
+.admin-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: #f5f6f8;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f6f8;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #e6e6e6;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
+
+  color: #1a1a1a;
+  font-weight: 500;
+  font-style: bold;
+}
+
+.menu button:hover {
+  background: #f0f2f5;
+}
+
+.user-area {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #e6e6e6;
+}
+
+.user-info strong {
+  display: block;
+  font-size: 15px;
+}
+
+.user-info span {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.logout-btn {
+  margin-top: 12px;
+  width: 100%;
+  background: #ff4b4b;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background: #e64545;
+}
+
+/* MAIN CONTENT */
+.content {
+  flex: 1;
+  padding: 35px;
+  overflow-y: auto;
+}

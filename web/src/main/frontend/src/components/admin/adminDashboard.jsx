@@ -1,60 +1,41 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import AdminLayout from "./layout/AdminLayout";
 import "./adminDashboard.css";
 
 function AdminDashboard() {
-  const navigate = useNavigate();
-  const [darkMode] = useState(() => localStorage.getItem("darkMode") === "true");
-
-  useEffect(() => {
-    if (localStorage.getItem("role") !== "admin") {
-      navigate("/login");
-    }
-  }, [navigate]);
-
   return (
-    <div className={`admin-container ${darkMode ? "dark" : ""}`}>
-      <header className="admin-header">
-        <h1>Painel do Administrador</h1>
-        <button 
-          className="logout-btn"
-          onClick={() => {
-            localStorage.clear();
-            navigate("/login");
-          }}
-        >
-          Sair
-        </button>
-      </header>
+    <AdminLayout>
+      <h1 className="page-title">Visão Geral da Plataforma</h1>
+      <p className="subtitle">Gerencie condomínios e configurações da plataforma.</p>
 
-      <section className="admin-grid">
+      <div className="dashboard-grid">
 
-        <div className="admin-card" onClick={() => navigate("/admin/usuarios")}>
-          <div className="icon users"></div>
-          <h3>Gerenciar Usuários</h3>
-          <p>Controle de moradores, síndicos e porteiros.</p>
+        <div className="dashboard-card">
+          <h3>Resumo Geral</h3>
+          <div className="stats">
+            <div><strong>0</strong><span>Total de Entregas</span></div>
+            <div><strong>0</strong><span>Retiradas Pendentes</span></div>
+          </div>
         </div>
 
-        <div className="admin-card" onClick={() => navigate("/admin/condominios")}>
-          <div className="icon buildings"></div>
-          <h3>Condomínios</h3>
-          <p>Cadastrar, editar e visualizar condomínios.</p>
+        <div className="dashboard-card">
+          <h3>Gerenciar Condomínios</h3>
+          <p>Adicione, edite ou remova condomínios.</p>
         </div>
 
-        <div className="admin-card" onClick={() => navigate("/admin/entregas")}>
-          <div className="icon deliveries"></div>
-          <h3>Relatórios de Entregas</h3>
-          <p>Acompanhe entregas pendentes e finalizadas.</p>
+        <div className="dashboard-card">
+          <h3>Configurações da Plataforma</h3>
+          <p>Ajustes globais do sistema.</p>
         </div>
 
-        <div className="admin-card" onClick={() => navigate("/admin/config")}>
-          <div className="icon settings"></div>
-          <h3>Configurações</h3>
-          <p>Ajustes gerais do sistema e preferências.</p>
+        <div className="dashboard-card">
+          <h3>Editar Usuários</h3>
+          <p>Gerencie permissões e redefina senhas.</p>
         </div>
 
-      </section>
-    </div>
+      </div>
+
+    </AdminLayout>
   );
 }
 
