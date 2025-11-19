@@ -1,234 +1,187 @@
-/* Reset e tamanho completo para html e body */
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #e3f2fd; /* azul claro */
-  color: #333;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-/* Centraliza a main-wrapper na tela inteira */
-#root {
-  min-height: 100vh;
-  min-width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Tema escuro */
-body.dark {
-  background-color: #121a2b; /* azul escuro */
-  color: #ddd;
-}
-
-/* Wrapper centralizado vertical e horizontal */
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100vw;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px;
+/* ============================================================
+   LAYOUT BASE
+============================================================ */
+* {
   box-sizing: border-box;
-  position: relative;
+  max-width: 100%;
 }
 
-/* Botão toggle no topo direito fixo */
-.top-right-buttons {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 100;
-}
-
-/* Estilo do botão toggle */
-.top-btn {
-  background-color: #1565c0;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgb(21 101 192 / 0.3);
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-}
-
-.top-btn:hover {
-  background-color: #0d47a1;
-}
-
-/* Cartão principal */
-.welcome-card {
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.25);
-  padding: 40px;
+.home-container {
   width: 100%;
-  max-width: 600px;
-  text-align: center;
-  box-sizing: border-box;
-  animation: fadeIn 0.6s ease forwards;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* Tema escuro para o cartão */
-body.dark .welcome-card {
-  background-color: #1e2a47;
-  color: #cfd8dc;
-  box-shadow: 0 6px 25px rgba(21, 101, 192, 0.8);
+/* Header */
+.header .logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2d6cdf;
 }
 
-/* Marca */
-.brand {
-  color: #1565c0;
-  font-weight: 700;
+/* ============================================================
+   TEMA — BOTÃO DARK/LIGHT
+============================================================ */
+
+.top-right-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
-body.dark .brand {
-  color: #82b1ff;
-}
-
-/* Título menor */
-.welcome-card h1 {
-  font-size: 1.9rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Parágrafo */
-.welcome-card p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 2rem;
-  color: inherit;
-}
-
-/* Container dos cards */
-.dashboard-cards {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 2.5rem;
-}
-
-/* Cards individuais */
-.dashboard-card {
-  background-color: #bbdefb;
-  border-radius: 16px;
-  padding: 1.3rem 1.6rem;
-  min-width: 130px;
-  flex: 1 1 130px;
-  box-shadow: 0 4px 10px rgb(21 101 192 / 0.2);
-  cursor: default;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #0d47a1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dashboard-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgb(21 101 192 / 0.3);
-}
-
-body.dark .dashboard-card {
-  background-color: #283d6a;
-  color: #82b1ff;
-  box-shadow: 0 4px 12px rgb(21 101 192 / 0.6);
-}
-
-/* Ícone */
-.dashboard-icon {
-  width: 44px;
-  height: 44px;
-  margin-bottom: 0.8rem;
-}
-
-/* Número */
-.count {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-}
-
-/* Container dos botões */
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1.3rem;
-  flex-wrap: wrap;
-}
-
-/* Botões base */
-.btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.6rem 1.6rem;
-  border-radius: 12px;
+.top-btn {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-  box-shadow: 0 6px 12px rgba(21, 101, 192, 0.3);
-  user-select: none;
 }
 
-/* Botão Login */
-.login-btn {
-  background-color: #1565c0;
-  color: white;
+/* ============================================================
+   GRID PRINCIPAL — COLUNA ESQUERDA + COLUNA DIREITA
+============================================================ */
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  align-items: flex-start;
 }
 
-.login-btn:hover {
-  background-color: #0d47a1;
-  box-shadow: 0 8px 18px rgba(13, 71, 161, 0.5);
+.left {
+  flex: 1;
+  min-width: 420px;
+  max-width: 520px;
 }
 
-/* Botão Cadastro */
-.signup-btn {
-  background-color: white;
-  color: #1565c0;
-  border: 2px solid #1565c0;
+.right {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  min-width: 560px;
 }
 
-.signup-btn:hover {
-  background-color: #1565c0;
-  color: white;
-  box-shadow: 0 8px 18px rgba(21, 101, 192, 0.5);
+/* ============================================================
+   TEXTOS E BOTÕES
+============================================================ */
+
+.left h2 {
+  font-size: 32px;
+  font-weight: bold;
 }
 
-/* Animação fade-in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.subtitle {
+  color: #666;
+  margin-bottom: 20px;
 }
 
-/* Responsividade */
-@media (min-width: 768px) {
-  .main-wrapper {
-    max-width: 600px;
-  }
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  width: auto;
+  max-width: 280px;
+  margin: 20px 0;
 }
 
-@media (min-width: 1024px) {
-  .main-wrapper {
-    max-width: 720px;
-  }
+.btn-primary,
+.btn-secondary {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+
+  width: 150px;
+  height: 44px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  line-height: 1 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+}
+
+/* login */
+.btn-primary {
+  background: #2d6cdf;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #f0f6ff !important;  /* leve azul */
+  border-color: #2d6cdf !important;
+}
+
+/* registro */
+.btn-secondary {
+  background: #fff;
+  border: 1px solid #2d6cdf;
+  color: #2d6cdf;
+}
+
+/* Features (bullets) */
+.features li {
+  margin: 8px 0;
+}
+
+.info-box {
+  background: #e6f4ff;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #2d6cdf;
+  margin-top: 20px;
+}
+
+/* ============================================================
+   CARDS DO LADO DIREITO
+============================================================ */
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+   RODAPÉ
+============================================================ */
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #777;
+}
+
+/* ============================================================
+   DARK MODE
+============================================================ */
+
+body.dark {
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+body.dark .card {
+  background: #1e293b;
+  box-shadow: none;
+}
+
+body.dark .info-box {
+  background: #1e293b;
+  border-left-color: #60a5fa;
+}
+
+body.dark .btn-primary {
+  background: #3b82f6;
+}
+
+body.dark .btn-secondary {
+  background: #1e293b;
+  border-color: #3b82f6;
+  color: #3b82f6;
 }

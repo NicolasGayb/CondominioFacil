@@ -28,53 +28,69 @@ function Home() {
         </button>
       </div>
 
-      {/* Cartão de boas-vindas com estatísticas */}
-      <div className="welcome-card">
-        <h1>
-          Bem-vindo ao <span className="brand">Condomínio Fácil!</span>
+      <div className="home-container">
+        <header className="header">
+        <h1 className="logo">
+          🏢 Porteiro Digital
         </h1>
-        <p>
-          Aqui você acompanha suas encomendas, solicitações e avisos do condomínio em tempo real.
-        </p>
+        </header>
 
-        {/* Cartões de resumo */}
-        <div className="dashboard-cards">
-          <div className="dashboard-card">
-            <img
-              className="dashboard-icon"
-              src="https://cdn-icons-png.flaticon.com/512/833/833524.png"
-              alt="Encomendas"
-            />
-            <span className="count">0</span>
-            <p>Encomendas aguardando</p>
-          </div>
+        <main className="content">
+          <section className="left">
+            <h2>Bem-vindo ao Porteiro Digital</h2>
+            <p className="subtitle">
+              Plataforma moderna para encomendas, comunicação e administração condominial.
+            </p>
+            <div className="buttons">
+              <button
+                className="btn-primary"
+                onClick={() => navigate("/login")} // Redireciona para a página de login
+                >Login</button>
+              <button
+                className="btn-secondary"
+                onClick={() => navigate("/register")} // Redireciona para a página de registro
+                >Registrar</button>
+            </div>
 
-          <div className="dashboard-card">
-            <img
-              className="dashboard-icon"
-              src="https://cdn-icons-png.flaticon.com/512/1827/1827304.png"
-              alt="Avisos"
-            />
-            <span className="count">0</span>
-            <p>Avisos novos</p>
-          </div>
-        </div>
+            <ul className="features">
+              <li>🔔 Notificações automáticas de entregas</li>
+              <li>📊 Relatórios detalhados para síndicos</li>
+              <li>💬 Chat interno entre moradores e portaria</li>
+              <li>🛡️ Segurança e controle de acesso às encomendas</li>
+            </ul>
 
-        {/* Botões de ação que redirecionam para as páginas de Login e Cadastro */}
-        <div className="action-buttons">
-          <button
-            className="btn login-btn"
-            onClick={() => navigate("/login")} // Redireciona para Login
-          >
-            Login
-          </button>
-          <button
-            className="btn signup-btn"
-            onClick={() => navigate("/register")} // Redireciona para Cadastro
-          >
-            Cadastro
-          </button>
-        </div>
+            <div className="info-box">
+              <p>ℹ️ Novo: Acompanhe o status das encomendas em tempo real!</p>
+            </div>
+          </section>
+          <section className="right">
+            <div className="card">
+              <h3>📦 Controle de Encomendas</h3>
+              <p>Acompanhe entregas e retiradas com facilidade.</p>
+            </div>
+            <div className="card">
+              <h3>💬 Comunicação Direta</h3>
+              <p>Fale com síndicos e moradores de forma eficiente.</p>
+            </div>
+            <div className="card">
+              <h3>📑 Gestão Transparente</h3>
+              <p>Acesso facilitado a relatórios e informações.</p>
+            </div>
+            <div className="card">
+              <h3>🔔 Alertas Inteligentes</h3>
+              <p>Receba notificações automáticas sobre eventos importantes.</p>
+            </div>
+
+            <div className="card">
+              <h3>📈 Relatórios e Estatísticas</h3>
+              <p>Acompanhe o desempenho do condomínio em tempo real.</p>
+            </div>
+          </section>
+        </main>
+
+        <footer className="footer">
+          <p>© 2024 Porteiro Digital. Todos os direitos reservados.</p>
+        </footer>
       </div>
     </div>
   );
